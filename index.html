@@ -1,147 +1,171 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Mariah Acessórios</title>
-  <link rel="icon" href="favicon.png" />
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mariah Acessórios</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff;
+            color: #000;
+            margin: 0;
+            text-align: center;
+        }
+        header {
+            position: relative;
+        }
+        img.cabecalho {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        h1 {
+            font-size: 24px;
+            margin: 20px 0 5px;
+        }
+        p.subtitulo {
+            font-size: 16px;
+            margin-bottom: 30px;
+        }
+        button {
+            background-color: #000;
+            color: #fff;
+            border: none;
+            padding: 12px 20px;
+            margin: 8px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        button:hover {
+            background-color: #555;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 10;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.7);
+        }
+        .modal-content {
+            background-color: #fff;
+            margin: 5% auto;
+            padding: 20px;
+            border-radius: 8px;
+            width: 80%;
+            max-height: 80%;
+            overflow-y: auto;
+            text-align: left;
+        }
+        .close {
+            float: right;
+            font-size: 22px;
+            cursor: pointer;
+            color: #000;
+        }
+    </style>
 </head>
 <body>
-  <header class="topbar">
-    <div class="container">
-      <img src="logo.png" alt="Mariah Acessórios" class="logo">
-      <nav class="menu" id="menu">
-        <a href="#" class="menu-link" data-tab="home">Home</a>
-        <a href="#" class="menu-link" data-tab="regulamento">Regulamento</a>
-        <a href="#" class="menu-link" data-tab="detalhe">Descubra seu Detalhe</a>
-        <a href="#" class="menu-link" data-tab="experience">Mariah Experience</a>
-        <a href="#" class="menu-link" data-tab="ensaio">Ensaio Mariah</a>
-      </nav>
-      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">☰</button>
-    </div>
-  </header>
 
-  <section id="home" class="hero tab active">
-    <div class="hero-inner container">
-      <h1>Mariah Acessórios — <span class="highlight">Em cada detalhe, uma expressão de quem você é.</span></h1>
-      <p class="sub">Viva a liberdade de se expressar do seu jeito com a Mariah Acessórios.</p>
-      <div class="cta-row">
-        <a href="#" class="btn" data-tab="detalhe">Descubra seu Detalhe</a>
-        <a href="#" class="btn btn-light" data-tab="ensaio">Participar do Ensaio</a>
-      </div>
-    </div>
-  </section>
+    <header>
+        <img src="./cabecalho.png" alt="Mariah Acessórios" class="cabecalho">
+        <h1>Mariah Acessórios</h1>
+        <p class="subtitulo">Em cada detalhe, uma expressão de quem você é.</p>
+        <button id="btnEnsaio">Regulamento Ensaio Mariah</button>
+        <button id="btnExperience">Mariah Experience</button>
+    </header>
 
-  <main class="container">
-    <section id="regulamento" class="section tab">
-      <h2 class="section-title">Regulamento da Campanha</h2>
-      <button class="btn" id="openReg">Ver Regulamento Completo</button>
-      <p class="muted">Clique no botão acima para ler o regulamento completo em uma janela com rolagem.</p>
-    </section>
-
-    <section id="detalhe" class="section tab">
-      <h2 class="section-title">Descubra qual o Seu Detalhe Mariah</h2>
-      <p class="muted">Receba descontos exclusivos em peças que combinam com o seu estilo!</p>
-      <form id="form-detalhe" class="simple-form">
-        <input type="text" name="nome" placeholder="Nome completo" required>
-        <input type="email" name="email" placeholder="E-mail" required>
-        <input type="tel" name="telefone" placeholder="Telefone" required>
-        <div class="form-actions">
-          <button class="btn" type="submit">Continuar para o Quiz</button>
+    <!-- Modal Ensaio Mariah -->
+    <div id="modalEnsaio" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeEnsaio">&times;</span>
+            <pre style="white-space: pre-wrap;">Conteúdo do Regulamento Ensaio Mariah será adicionado em breve.</pre>
         </div>
-      </form>
-    </section>
-
-    <section id="experience" class="section tab">
-      <h2 class="section-title">Cadastro para concorrer à Mariah Experience</h2>
-      <form id="form-experience" class="full-form">
-        <input type="text" name="nome" placeholder="Nome completo" required>
-        <input type="tel" name="telefone" placeholder="Telefone celular" required>
-        <input type="email" name="email" placeholder="E-mail" required>
-        <input type="date" name="data_visita" placeholder="Data da visita" required>
-        <input type="text" name="consultora" placeholder="Nome da consultora" required>
-        <input type="text" name="produtos" placeholder="Produtos comprados (separe por vírgula)" required>
-        <input type="text" name="numero" placeholder="Número que recebeu" required>
-        <div class="form-actions">
-          <button class="btn" type="submit">Enviar Cadastro</button>
-        </div>
-      </form>
-    </section>
-
-    <section id="ensaio" class="section tab">
-      <h2 class="section-title">Cadastro para participar do concurso e concorrer ao Ensaio Mariah</h2>
-      <form id="form-ensaio" class="full-form">
-        <input type="text" name="nome" placeholder="Nome completo" required>
-        <input type="email" name="email" placeholder="E-mail" required>
-        <input type="tel" name="telefone" placeholder="Telefone celular" required>
-        <label class="label-link">Coloque o link da foto que você postou aqui</label>
-        <input type="url" name="link" placeholder="https://instagram.com/seu-post" required>
-        <div class="form-actions">
-          <button class="btn" type="submit">Enviar</button>
-        </div>
-      </form>
-    </section>
-
-    <section id="colecao" class="section">
-      <h2 class="section-title">Coleção em destaque</h2>
-      <div class="grid">
-        <div class="card"><img src="images/img2.jpeg" alt="Modelo 1"><div class="caption">Peça 1</div></div>
-        <div class="card"><img src="images/img3.jpeg" alt="Modelo 2"><div class="caption">Peça 2</div></div>
-        <div class="card"><img src="images/img4.jpeg" alt="Modelo 3"><div class="caption">Peça 3</div></div>
-        <div class="card"><img src="images/img5.jpeg" alt="Modelo 4"><div class="caption">Peça 4</div></div>
-        <div class="card"><img src="images/img6.jpeg" alt="Modelo 5"><div class="caption">Peça 5</div></div>
-        <div class="card"><img src="images/img7.jpeg" alt="Modelo 6"><div class="caption">Peça 6</div></div>
-        <div class="card"><img src="images/img8.jpeg" alt="Modelo 7"><div class="caption">Peça 7</div></div>
-        <div class="card"><img src="images/img9.jpeg" alt="Modelo 8"><div class="caption">Peça 8</div></div>
-        <div class="card"><img src="images/img10.jpeg" alt="Modelo 9"><div class="caption">Peça 9</div></div>
-
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <div class="container">
-      <div>© 2025 Mariah Acessórios</div>
     </div>
-  </footer>
 
-  <div class="modal" id="regModal" aria-hidden="true">
-    <div class="modal-content" role="document">
-      <button class="modal-close" id="closeReg" aria-label="Fechar">✕</button>
-      <h3>REGULAMENTO – Promoção “Ensaio Mariah”</h3>
-      <div class="modal-scroll">
-        <p><strong>1. PROMOTORA</strong></p>
-        <p>A presente promoção é realizada por Mariah Acessórios, pessoa jurídica de direito privado, doravante denominada simplesmente Promotora.</p>
-        <p><strong>2. NOME DA PROMOÇÃO</strong></p>
-        <p>“Ensaio Mariah”</p>
-        <p><strong>3. PERÍODO DA PROMOÇÃO</strong></p>
-        <p>A promoção é válida de 16 de fevereiro de 2026 a 08 de março de 2026, sendo o resultado divulgado no dia 09 de março de 2026, no perfil oficial da marca no Instagram @mariahacessorios.</p>
-        <p><strong>4. ELEGIBILIDADE</strong></p>
-        <p>Poderão participar pessoas físicas, maiores de 18 anos, residentes no Brasil, que cumpram integralmente as regras deste regulamento. Funcionários da Mariah Acessórios e seus familiares diretos não poderão participar.</p>
-        <p><strong>5. COMO PARTICIPAR</strong></p>
-        <p>Para participar da promoção, o(a) interessado(a) deverá:</p>
-        <ul>
-          <li>Seguir os perfis oficiais da marca no Instagram: @mariahacessorios e @mariahcuritiba;</li>
-          <li>Marcar 4 pessoas diferentes nos comentários da publicação oficial do sorteio;</li>
-          <li>Postar uma foto em seu próprio perfil do Instagram com a hashtag #MinhaExpressão (perfil deve estar público no dia do resultado);</li>
-          <li>Preencher o formulário do cadastro da campanha com o nome completo, telefone celular, e-mail e link da publicação feita com a hashtag.</li>
-        </ul>
-        <p><strong>6. CRITÉRIO DE PREMIAÇÃO</strong></p>
-        <p>Serão escolhidas 3 ganhadoras. As vencedoras serão as autoras das 3 fotos mais curtidas que tiverem cumprido todas as regras da promoção até 08/03/2026.</p>
-        <p><strong>7. PRÊMIO</strong></p>
-        <p>Cada ganhadora receberá um Ensaio Fotográfico exclusivo da Mariah Acessórios, incluindo sessão de fotos profissional, produção e um álbum de fotos. A fotógrafa contratada possui seu estúdio de fotos em Curitiba, dessa forma, a ganhadora precisará ter disponibilidade para comparecer até o estúdio da fotógrafa para poder realizar o seu ensaio fotográfico. O prêmio é intransferível e não pode ser convertido em dinheiro.</p>
-        <p><strong>8. DIVULGAÇÃO DOS RESULTADOS</strong></p>
-        <p>O resultado oficial será divulgado no dia 09/03/2026, no perfil @mariahcuritiba. As ganhadoras também serão contatadas por direct, e-mail cadastrado e telefone celular.</p>
-        <p><strong>9. AUTORIZAÇÃO DE USO DE IMAGEM</strong></p>
-        <p>Ao participar da promoção, o(a) participante autoriza, de forma gratuita, o uso de seu nome, imagem e conteúdo postado para fins de divulgação da promoção e de campanhas da marca Mariah Acessórios.</p>
-        <p><strong>10. DISPOSIÇÕES GERAIS</strong></p>
-        <p>A Promotora reserva-se o direito de desclassificar participações fraudulentas, incompletas ou que violem as regras deste regulamento. Esta promoção não é patrocinada, administrada ou associada ao Instagram.</p>
-        <p>Curitiba, fevereiro de 2026. Mariah Acessórios</p>
-      </div>
+    <!-- Modal Mariah Experience -->
+    <div id="modalExperience" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeExperience">&times;</span>
+            <pre style="white-space: pre-wrap;">
+REGULAMENTO – AÇÃO “MARIAH EXPERIENCE”
+
+1. PROMOTORA
+A presente ação é promovida por Mariah Acessórios, pessoa jurídica de direito privado, com sede no ParkShopping Barigui, Curitiba – PR, doravante denominada simplesmente Promotora.
+
+2. NOME DA AÇÃO
+“Mariah Experience”
+
+3. PERÍODO DE PARTICIPAÇÃO
+A ação é válida de 10 de março de 2026 a 30 de março de 2026, com o sorteio e divulgação das vencedoras no dia 31/03/2026, durante uma live exclusiva no perfil oficial da marca no Instagram: @mariahcuritiba.
+
+4. ELEGIBILIDADE
+Poderão participar clientes da Mariah Acessórios que realizarem compras acima de R$350,00 (trezentos e cinquenta reais) durante o período da ação, em compras realizadas exclusivamente na loja física de Curitiba da marca. 
+Apenas pessoas maiores de 18 anos e residentes no Brasil poderão participar.
+Funcionários da Mariah Acessórios e seus familiares diretos não poderão participar.
+
+5. COMO PARTICIPAR
+Para participar, a cliente deverá:
+Efetuar uma compra de valor igual ou superior a R$350,00 na loja física de Curitiba da Mariah Acessórios, durante o período da ação;
+Preencher o formulário de participação, informando:
+- Nome completo;
+- Peça comprada;
+- E-mail;
+- Número que recebeu da consultora após efetuar a compra;
+- Telefone celular para contato.
+O preenchimento do formulário é obrigatório para validação da participação no sorteio.
+
+6. CRITÉRIO DE PREMIAÇÃO
+Serão sorteadas 03 (três) ganhadoras, entre todas as participantes que cumprirem os requisitos descritos neste regulamento.
+O sorteio será realizado ao vivo, por meio de uma live no perfil @mariahcuritiba, no dia 31/03/2026.
+
+7. PRÊMIO
+Cada ganhadora receberá uma Consultoria de Estilo Exclusiva “Mariah Experience”, que inclui:
+- Atendimento personalizado de consultoria de imagem e estilo;
+- Orientações de combinações de acessórios e looks;
+- Experiência exclusiva promovida pela Mariah Acessórios.
+O prêmio é pessoal e intransferível, não podendo ser trocado por dinheiro ou outros produtos.
+
+8. DIVULGAÇÃO DAS VENCEDORAS
+As ganhadoras serão divulgadas no dia do sorteio (31/03/2026), durante a live e posteriormente confirmadas no perfil @mariahcuritiba e via contato direto pelo telefone ou e-mail cadastrado.
+
+9. DISPOSIÇÕES GERAIS
+A participação implica na aceitação total e irrestrita deste regulamento;
+A Promotora poderá desclassificar participações que não atendam às regras ou que apresentem informações falsas;
+A promoção não é patrocinada, administrada ou associada ao Instagram;
+Dúvidas e informações poderão ser esclarecidas diretamente na loja ou por mensagem ao perfil oficial da marca.
+
+Curitiba, março de 2026.
+Mariah Acessórios
+            </pre>
+        </div>
     </div>
-  </div>
 
-  <script src="script.js"></script>
+    <script>
+        const modalEnsaio = document.getElementById("modalEnsaio");
+        const btnEnsaio = document.getElementById("btnEnsaio");
+        const closeEnsaio = document.getElementById("closeEnsaio");
+
+        const modalExp = document.getElementById("modalExperience");
+        const btnExp = document.getElementById("btnExperience");
+        const closeExp = document.getElementById("closeExperience");
+
+        btnEnsaio.onclick = () => modalEnsaio.style.display = "block";
+        closeEnsaio.onclick = () => modalEnsaio.style.display = "none";
+
+        btnExp.onclick = () => modalExp.style.display = "block";
+        closeExp.onclick = () => modalExp.style.display = "none";
+
+        window.onclick = (event) => {
+            if (event.target === modalEnsaio) modalEnsaio.style.display = "none";
+            if (event.target === modalExp) modalExp.style.display = "none";
+        };
+    </script>
+
 </body>
 </html>
